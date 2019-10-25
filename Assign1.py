@@ -1,7 +1,7 @@
 import requests
 from tkinter import *
 import webbrowser
-import json
+from os import path
 try:
     import httplib
 except:
@@ -46,7 +46,7 @@ def getAPI():
 		datajson = myrequest.json()
 		annual_data = datajson[0]["annualData"] #parsing data
 		writeHTML(datajson,variable.get(),e1.get())
-		b2 = Button(win,text="view data",command=webbrowser.open("file:///Users/ethan.tsang/Documents/Design/climatedata.html"))
+		b2 = Button(win,text="view data",command=webbrowser.open("file://" + path.realpath('climatedata.html')))
 		#Opens html file ^^^
 		b2.grid(row=6,column=1)
 
